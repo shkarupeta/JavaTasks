@@ -7,27 +7,6 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Change the address abbreviation to a full word in 2 ways
- * one of them RegExp.
- *
- * Ave -> Avenue
- * Ave. -> Avenue
- * St -> Street
- * St. -> Street
- * Str -> Street
- * Str. -> Street
- *
- * Input data:
- * 555 Straight Stave Ave, San Francisco, CA 94104
- * 444 Ave Maria Stairway St., San Francisco, CA 94104
- * 9032 Flave Steep Str, San Francisco, CA 94104
- *
- * Result:
- * 555 Straight Stave Avenue, San Francisco, CA 94104
- * 444 Ave Maria Stairway Street, San Francisco, CA 94104
- * 9032 Flave Steep Street, San Francisco, CA 94104
- * */
 
 public class ChangeAbbrAddressToFull {
     private static String inputString;
@@ -52,7 +31,7 @@ public class ChangeAbbrAddressToFull {
     }
 
     /**
-     *
+     * set variable inputString from file, using Scanner
      */
     private static void setInputString() {
         try {
@@ -63,10 +42,16 @@ public class ChangeAbbrAddressToFull {
             e.printStackTrace();
         }
     }
+    /**
+     * @return input string
+     */
+    public static String getInputString() {
+        return inputString;
+    }
 
     /**
-     * @param input
-     * @return
+     * @param input string with abbreviation values
+     * @return string with replaced values, using RegExp
      */
     private static String checkAbbrAndReplaceWithRegExp(String input){
         String strTmp = input;
@@ -81,8 +66,8 @@ public class ChangeAbbrAddressToFull {
     }
 
     /**
-     * @param input
-     * @return
+     * @param input string with abbreviation values
+     * @return string with replaced values, using dictionary
      */
     private static String checkAbbrAndReplaceWithDictionary(String input){
         String strTmp = input;
@@ -93,11 +78,6 @@ public class ChangeAbbrAddressToFull {
         return strTmp;
     }
 
-    /**
-     * @return
-     */
-    public static String getInputString() {
-        return inputString;
-    }
+
 
 }
