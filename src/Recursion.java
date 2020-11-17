@@ -1,10 +1,5 @@
 import java.util.Scanner;
 
-
-/**
- * Use a recursion to display all the numbers from the 1st to the entered.
- */
-
 public class Recursion {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
